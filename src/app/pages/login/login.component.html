@@ -1,0 +1,52 @@
+<div class="container-login">
+  <mat-card class="mat-elevation-z24">
+    <section class="itens">
+      <div class="item-logo">         
+        <img class="logo" src="assets/marca-clina-positivo.svg" />        
+      </div>
+
+      <div class="item-title">                  
+         <h1> Bem-vindo de volta! </h1>
+       </div>
+      
+      <div class="item-input">
+        <form [formGroup]="loginForm" (submit)="submitLogin()">
+          <mat-form-field class="inputEmail">
+            <input
+              matInput
+              placeholder="Insira seu E-mail!"
+              formControlName="email"
+              required
+            />
+            <mat-error> Insira um E-mail Válido! </mat-error>
+          </mat-form-field>
+          <mat-form-field class="inputPassoword">
+            <input
+              matInput
+              [type]="hideInputPassoword ? 'password' : 'text'"
+              placeholder="Insira sua senha!"
+              formControlName="password"
+              required
+            />
+            <mat-icon matSuffix (click)="hideInputPassoword = !hideInputPassoword">{{hideInputPassoword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error> Insira uma Senha! </mat-error>
+          </mat-form-field>
+
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="!loginForm.valid"           
+            [ngClass]="{'button-actived': loginForm.valid}"
+          >            
+            Entrar
+          </button>          
+        </form>
+        
+        <div class="item-forgot">                  
+         <h4> Esqueci minha senha! </h4>
+       </div>
+
+      </div>
+    </section>
+  </mat-card>
+</div>

@@ -1,0 +1,56 @@
+<div class="container">
+    <app-header></app-header>
+    <div class="container-card">
+        <div class="subtitle">
+          <h1>Horários disponivéis para escolher.</h1>
+        </div>
+    
+        <div class="filter">
+          <form [formGroup]="findRoom">
+            <mat-form-field>
+              <mat-label>Data Selecionada</mat-label>
+              <input
+                matInput
+                [matDatepicker]="dataFilter"
+                formControlName="date"
+                required
+              />
+              <mat-datepicker-toggle matSuffix [for]="dataFilter">
+                <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #dataFilter></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label>Perido Selecionado</mat-label>
+              <mat-select
+                formControlName="period"
+                required
+              >
+                <mat-option value="Manhã">Manhã</mat-option>
+                <mat-option value="Tarde">Tarde</mat-option>
+                <mat-option value="Noite">Noite</mat-option>
+                <mat-option value="Todos">Todos</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </form>
+        </div>
+    
+        <div class="results-rooms">
+            <ng-container *ngIf="dataSchedule">
+              <div *ngFor="let itemSchedule of dataSchedule | keyvalue">  
+
+                  <span class="itens-day"> {{ returnDay(itemSchedule.key) }} </span>
+                  <span class="itens-name-month"> {{ returnMouthName(itemSchedule.key) }} </span>
+                  
+                  <app-reserve-date
+                    [itemSchedule]="itemSchedule.value"
+                    [findRoom]="findRoom"
+                    [idRoom]="id"
+                  >
+                </app-reserve-date>
+              </div>                           
+            </ng-container>            
+        </div>
+      </div>
+  </div>
+  

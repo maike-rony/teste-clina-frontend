@@ -1,0 +1,23 @@
+<div class="container-list-room">  
+  <section class="container row">
+    <div class="logo_room">
+      <img
+        width="400"
+        [src]="room.image"
+      />
+    </div>
+    <div class="item name_room">
+      <h1>{{ room.name }}</h1>
+      <p>Em {{ room.city}}</p>
+    </div>
+    <div class="item price_room">
+      <p>A partir de</p>
+      <h1><b>{{ room.price | currency: 'R$' }}</b>/h</h1>
+    </div>
+    <div class="item button">
+      <button mat-raised-button color="primary" (click)="reservarRoom(room)" class="button-actived">
+        Reservar
+      </button>
+    </div>
+  </section>
+</div>

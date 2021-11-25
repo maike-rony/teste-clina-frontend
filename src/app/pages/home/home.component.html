@@ -1,0 +1,58 @@
+<div class="container">
+  <app-header></app-header>
+  <div class="container-card">
+    <div class="subtitle">
+      <h1>Nossas salas disponíveis agora.</h1>
+      <p>
+        <img src="assets/iconfinder_clock_226587.svg" />
+        Todas as nossas salas estão localizadas em São Paulo - Bela Vista, Rua
+        Itapeva, 490, Sala 68 - CEP 0132-00
+      </p>
+    </div>
+
+    <div class="filter">
+      <form [formGroup]="findRoom">
+        <mat-form-field>
+          <mat-label>Selecione a Data</mat-label>
+          <input
+            matInput
+            [matDatepicker]="dataFilter"
+            (dateChange)="changeDataFilter($event)"
+            formControlName="date"
+            required
+          />
+          <mat-datepicker-toggle matSuffix [for]="dataFilter">
+            <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+          </mat-datepicker-toggle>
+          <mat-datepicker #dataFilter></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Selecione o Perido</mat-label>
+          <mat-select
+            (selectionChange)="changePeriodFilter($event)"
+            formControlName="period"
+            required
+          >
+            <mat-option value="Manhã">Manhã</mat-option>
+            <mat-option value="Tarde">Tarde</mat-option>
+            <mat-option value="Noite">Noite</mat-option>
+            <mat-option value="Todos">Todos</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </form>
+    </div>
+
+    <div class="results-rooms">
+      <ng-container *ngIf="findRoom.valid">
+        <p>Encontramos {{ listRooms.length }} salas disponíveis</p>
+        <ng-container *ngFor="let room of listRooms">
+          <app-list-room 
+          [room]="room"
+          [formRoom]="findRoom.value"          
+          >
+        </app-list-room>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+</div>

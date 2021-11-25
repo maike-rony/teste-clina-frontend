@@ -1,0 +1,34 @@
+.container {
+    margin: 40px 0 0 40px;    
+}
+
+.container-sidenav {                
+    display: flex;    
+    width: 100%;         
+}
+
+.container-sidenav .logo {
+    width: 250px;    
+}
+
+.container-sidenav .title {
+    display: flex;
+    width: 80%;
+    display: inline;
+    margin: 15px 0 0 5px;   
+}
+
+.container-sidenav .title h4 {
+    font-size: 16px;       
+    color: #7A35FF;
+}
+
+.container-sidenav .logout {
+    margin-left: 20px;
+    width: 10%;
+}
+
+.container-sidenav .logout img {
+    width: 20px;
+    cursor: pointer;
+}

@@ -1,0 +1,40 @@
+.container-list-room {
+    margin-top: 10px;
+}
+
+.container {     
+    margin-right: 300px;
+    border: 1px solid rgb(243, 243, 243);
+    background-color: #fff;    
+    display: flex; 
+    align-items: center;
+}
+
+.container .item {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.container .name_room {
+    width: 450px;
+}
+
+.container .price_room {
+    width: 200px;
+}
+
+
+.container button {           
+    width: 250px;
+}
+
+.button-actived {   
+    background-color: #7A35FF;
+    box-shadow: 0px 4px 8px #0000001F;
+    border-radius: 4px; 
+    color: #fff;
+    font-size: 16px;
+    width: 95%;
+    height: 44px;
+    margin: 10px 30px 0 0;   
+}

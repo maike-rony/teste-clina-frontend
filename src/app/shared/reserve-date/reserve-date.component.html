@@ -1,0 +1,59 @@
+<div class="container-reserve">
+  <mat-card class="card-reserved">
+    <h3>
+      <b>Valor Total: {{ dataRoom.price | currency: "R$" }}</b
+      >/h
+    </h3>
+    <p>Nome do consultório - {{ dataRoom.name }}</p>
+
+    <div class="card-itens">
+      Comodidades da sala incluídas
+      <p><strong> {{ dataRoom.description }}</strong></p>
+    </div>
+
+    <div class="card-time">
+      <p><b>Data e horário escolhido</b></p>
+      <p>
+        {{ returnDay(findRoom.value.date) }} de
+        {{ returnMouthName(findRoom.value.date) }}, 
+        <ng-container *ngIf="timeStart && timeEnd; else elseTemplate">
+            {{  timeStart }} as {{  timeEnd }}
+        </ng-container>
+        <ng-template #elseTemplate>
+          Nenhuma selecionada
+        </ng-template>      
+      </p>
+      <button
+        mat-raised-button
+        [disabled]="!timeStart && !timeEnd"
+        (click)="reservarRoom()"
+        class="button-actived"
+      >
+       Reservar
+      </button>
+    </div>
+  </mat-card>
+  <ng-container
+    class="container-period"
+    *ngFor="let period of itemSchedule | keyvalue; let i = index"
+  >
+    <ng-container
+      *ngIf="
+        period.key == findRoom.value.period || findRoom.value.period == 'Todos'
+      "
+    >
+      <p>
+        No periodo da: <b>{{ period.key }} </b>
+      </p>
+      <div class="card" *ngFor="let item of getArray(period.key)">
+        <mat-card
+          (click)="
+            setIdSchedule(item.scheduleId, item.time_start, item.time_end)
+          "
+        >
+          <p>{{ item.time_start }} - {{ item.time_end }}</p>
+        </mat-card>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>

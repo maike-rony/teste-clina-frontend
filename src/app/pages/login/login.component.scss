@@ -1,0 +1,80 @@
+.container-login {             
+    display: flex;
+    width: 100%;
+    height: 100%; 
+    justify-content: center;    
+}
+
+mat-card {
+    margin-top: 8%;         
+    text-align: center;
+    width: 500px;
+    height: 500px;   
+    background-color: #fff;
+    color: #000;
+}
+
+.itens {       
+    display: flexbox;
+    text-align: left;
+    height: 100%; 
+    margin-left: 10px;          
+}
+
+.itens .item-logo {   
+    margin: 40px 0 40px 0;
+}
+
+.itens .item-title h1 {
+    font-size: 24px;     
+    font-weight: 800;
+}
+
+.itens .item-input {   
+    margin: 40px 0 0 0;
+}
+
+.itens .item-input .mat-form-field {   
+    display: block;
+    margin: 0 40px 10px 0;  
+}
+
+.itens .item-input .mat-icon {   
+    color: rgb(199, 199, 199); 
+}
+
+.itens .item-input button {   
+    color: #fff;
+    font-size: 16px;
+    width: 95%;
+    height: 44px;
+    margin: 10px 30px 0 0;   
+}
+
+.itens .item-input .button-actived {   
+    background-color: #7A35FF;
+    box-shadow: 0px 4px 8px #0000001F;
+    border-radius: 4px; 
+    color: #fff;
+    font-size: 16px;
+    width: 95%;
+    height: 44px;
+    margin: 10px 30px 0 0;   
+}
+
+
+.itens .item-forgot h4 {
+    margin-top: 40px; 
+    text-decoration: underline; 
+    font-size: 14px;  
+    text-align: center;
+    font-weight: 800;
+    color: #212E89;
+}
+
+
+
+
+
+
+
